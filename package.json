@@ -1,0 +1,15 @@
+{
+  "name": "serverest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Valmir Santos",
+  "license": "ISC",
+  "description": "Automação de Teste E2E - ServeRest",
+  "devDependencies": {
+    "cypress": "^13.15.0"
+  }
+}
