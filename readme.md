@@ -5,8 +5,9 @@
 
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
+- [Cenários de Testes](#instalação)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Rodando os Testes](#rodando-os-testes)
+- [Execução dos Testes](#rodando-os-testes)
   - [Modo Interativo (Cypress GUI)](#modo-interativo-cypress-gui)
   - [Modo Headless (Sem Interface Gráfica)](#modo-headless-sem-interface-gráfica)
 - [Variáveis de Ambiente](#variáveis-de-ambiente)
@@ -50,6 +51,8 @@ npx cypress open
   ├── integration
 
   ├── support
+
+> Essa é uma estrutura básica, pode ser modificada conforme necessidade.
 
 ### Cenários de Teste
 
@@ -129,10 +132,6 @@ SERVEREST/
 
         └── e2e.spec.cy.js
 
-    ├── fixtures/
-      
-      └── user.json
-
     ├── support/
 
       └── commands.js
@@ -158,8 +157,6 @@ SERVEREST/
 - api-test/: Pasta onde os arquivos de testes de API são armazenados.
 
 - e2e/: Pasta onde os arquivos de testes são armazenados. Cada arquivo é geralmente organizado por funcionalidade ou por página da aplicação. 
-
-- fixtures/: 
 
 - support/:
     
