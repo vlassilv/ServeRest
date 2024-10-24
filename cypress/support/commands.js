@@ -1,28 +1,4 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import Ajv from 'ajv';
 
 // Função para gerar um nome aleatório
 Cypress.Commands.add('generateRandomName', () => {
@@ -40,4 +16,15 @@ Cypress.Commands.add('generateRandomEmail', () => {
 Cypress.Commands.add('generateRandomPassword', () => {
   const randomString = Math.random().toString(36).substring(2, 10); // Gera uma string aleatória
   return `Senha${randomString}!`; // Cria uma senha segura
+});
+
+const ajv = new Ajv();
+
+Cypress.Commands.add('validateSchema', (responseBody, schema) => {
+  const validate = ajv.compile(schema);
+  const valid = validate(responseBody);
+
+  if (!valid) {
+    throw new Error('Schema validation failed: ' + JSON.stringify(validate.errors));
+  }
 });
