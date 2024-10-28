@@ -9,11 +9,9 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 720,
     defaultCommandTimeout: 8000,
-    
-    },
-
-    setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
-  }
+    screenshotOnRunFailure: true, 
+    video: true,
+    screenshotsFolder: 'cypress/evidence/screenshots',
+    videosFolder: 'cypress/evidence/videos',
+  },
 });
-
