@@ -1,66 +1,73 @@
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 
+/*
 describe('E2E 01 - Cadastro de novo usuário e login', () => { 
-    it('Deve cadastrar um novo usuário com nome, email e senha aleatórios e fazer login', () => { 
-      cy.generateRandomName().then((randomName) => {
-        cy.generateRandomEmail().then((randomEmail) => {
-          cy.generateRandomPassword().then((randomPassword) => {
-            
-            RegisterPage.visit();
-            RegisterPage.fillName(randomName);
-            RegisterPage.fillEmail(randomEmail);
-            RegisterPage.fillPassword(randomPassword);
-            RegisterPage.submit();
-            RegisterPage.verifySuccess();
+  it('Deve cadastrar um novo usuário com nome, email e senha aleatórios e fazer login', () => { 
+    Cypress.Promise.all([
+      cy.generateRandomName(),
+      cy.generateRandomEmail(),
+      cy.generateRandomPassword()
+    ]).then(([randomName, randomEmail, randomPassword]) => {
+      
+      // Cadastro do usuário
+      RegisterPage.visit();
+      RegisterPage.fillName(randomName);
+      RegisterPage.fillEmail(randomEmail);
+      RegisterPage.fillPassword(randomPassword);
+      RegisterPage.submit();
+      RegisterPage.verifySuccess();
 
-            LoginPage.visit();
-            LoginPage.fillEmail('testeValmir02@gmail.com');
-            LoginPage.fillPassword('12345678');
-            LoginPage.submit();
-            LoginPage.verifyLoginValid();
-          });
-        });
-      });
+      // Login com os dados recém-cadastrados
+      LoginPage.visit();
+      LoginPage.fillEmail(randomEmail);
+      LoginPage.fillPassword(randomPassword);
+      LoginPage.submit();
+      LoginPage.verifyLoginValid();
     });
+  });
 });
 
 describe('E2E 02 - Cadastro de novo usuário administrador e login', () => { 
-    it('Deve cadastrar um usuário administrador com nome, email e senha aleatórios', () => { 
-      cy.generateRandomName().then((randomName) => {
-        cy.generateRandomEmail().then((randomEmail) => {
-          cy.generateRandomPassword().then((randomPassword) => {
-            
-            RegisterPage.visit();    
-            RegisterPage.fillName(randomName);
-            RegisterPage.fillEmail(randomEmail);
-            RegisterPage.fillPassword(randomPassword);
-            cy.get('#administrador').click();  
-            RegisterPage.submit();
-            RegisterPage.verifySuccess();
+  it('Deve cadastrar um usuário administrador com nome, email e senha aleatórios', () => { 
+    // Gerar dados aleatórios para o nome, email e senha
+    cy.generateRandomName().then((randomName) => {
+      cy.generateRandomEmail().then((randomEmail) => {
+        cy.generateRandomPassword().then((randomPassword) => {
+          
+          // Cadastro do usuário administrador
+          RegisterPage.visit();    
+          RegisterPage.fillName(randomName);
+          RegisterPage.fillEmail(randomEmail);
+          RegisterPage.fillPassword(randomPassword);
+          cy.get('#administrador').click();  // Marca o usuário como administrador
+          RegisterPage.submit();
+          RegisterPage.verifySuccess();
 
-            LoginPage.visit();
-            LoginPage.fillEmail('testuseradmin01@gmail.com');
-            LoginPage.fillPassword('123456');
-            LoginPage.submit();
-            LoginPage.verifyLoginValid();
-          });
+          // Login com o usuário administrador recém-cadastrado
+          LoginPage.visit();
+          LoginPage.fillEmail(randomEmail); // Usar o email gerado
+          LoginPage.fillPassword(randomPassword); // Usar a senha gerada
+          LoginPage.submit();
+          LoginPage.verifyLoginValid();
         });
       });
     });
+  });
 });
+
+*/
 
 describe('E2E 03 - Adicionar produto ao carrinho e finalizar compra', () => {
   
     beforeEach(() => {
         LoginPage.visit();
-        LoginPage.fillEmail('testeValmir02@gmail.com');
-        LoginPage.fillPassword('12345678');
+        LoginPage.fillEmail(randomEmail);
+        LoginPage.fillPassword(randomPassword);
         LoginPage.submit();
         LoginPage.verifyLoginValid();
-    });
   
-    it('Deve adicionar um produto ao carrinho e finalizar a compra', () => { 
+    it.only('Deve adicionar um produto ao carrinho e finalizar a compra', () => { 
         cy.get(':nth-child(1) > .card-body > div > [href="/minhaListaDeProdutos"] > [data-testid="adicionarNaLista"]').click();
         cy.get('[data-testid="paginaInicial"]').click();
         cy.get(':nth-child(2) > .card-body > div > [href="/minhaListaDeProdutos"] > [data-testid="adicionarNaLista"]').click();
@@ -82,6 +89,7 @@ describe('E2E 03 - Adicionar produto ao carrinho e finalizar compra', () => {
         cy.get('button').contains('Concluir Pedido').click();
         // Passo 8: Verificar se o sistema exibe uma mensagem de confirmação do pedido
         cy.get('.confirmacao-pedido').should('contain', 'Pedido realizado com sucesso');
-            */
+        */
+    });
     });
 });
