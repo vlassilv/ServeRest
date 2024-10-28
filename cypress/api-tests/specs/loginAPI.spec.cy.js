@@ -6,7 +6,7 @@ describe('Login API Tests', () => {
     loginRequest('usuario@teste.com', 'senhaSegura').then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property('token');
-      cy.validateSchema(response.body, loginSchema); // Validação de schema
+      cy.validateSchema(response.body, loginSchema);
     });
   });
 
